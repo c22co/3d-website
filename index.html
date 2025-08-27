@@ -3,26 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A-Frame Sphere Popup - Fixed</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.3/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-drag-controls/dist/aframe-drag-controls.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-super-hands-component@4.0.3/dist/aframe-super-hands.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    hello world
-    <a-scene physics="debug: true">
+    <a-scene physics>
+        <a-camera position="0 3 3">
+            <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+        </a-camera>
 
+
+        <!-- ground -->
+        <a-box position="0 0 -5" rotation="0 0 0" width="100" height="0.5" depth="100" color="white" static-body></a-box>
         
-    <!--- ground --->
-      <a-box position="0 0 -5" rotation="0 0 0" width="10" height="0.5" depth="10" color="green" static-body></a-box>
-    <!--- draggab;e ball --->
-      <a-sphere position="0 5 -5" radius="1" color="red" dynamic-body drag-controls></a-sphere>
+        <!-- calc -->
+        <a-entity id="calculator" position="0 0 -3" dynamic-body="shape: box; mass: 0.3; linearDamping: 0.4; angularDamping: 0.9; fixedRotation: true " drag-controls super-hands>
+
+            <a-box class="clickable" id="calc-body" 
+                position="0 1.5 0" 
+                width="2" 
+                height="3" 
+                depth="0.2" 
+                color="grey" 
+                material="metalness: 1; roughness: 0.7">
+            </a-box>
+
+            <a-box id="screen" position="0 2.5 0.16" width="1.8" height="0.5" depth="0.02" color="white" material="metalness: 0.1; roughness: 0.1">
+                <a-text value="Hello World!" align="left" color="grey" position="-0.4 0 0.02" width="5"></a-text>
+            </a-box>
+
+            <a-box id="button" position="-0.7 2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="%" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button2" position="0.75 2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="C" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button3" position="-0.5 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="1" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button4" position="-0.1 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="2" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button5" position="0.3 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="3" align="center" color="black" position="0 0 0.02"></a-text>  
+            </a-box>
+            <a-box id="button7" position="-0.5 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="5" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button8" position="-0.1 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="6" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button9" position="0.3 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="7" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button11" position="-0.5 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="9"   align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button12" position="-0.1 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="0" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button13" position="0.3 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="." align="center" color="black" position="0 0.04 0.02"></a-text>  
+            </a-box>
+            <a-box id="button14" position="0.75 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="+" align="center" color="black" position="0 0 0.02"></a-text>   
+            </a-box>
+            <a-box id="button15" position="0.75 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="-" align="center" color="black" position="0 0 0.02"></a-text>
+            </a-box>
+            <a-box id="button16" position="0.75 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="*" align="center" color="black" position="0 0 0.02"></a-text>    
+            </a-box>
+            <a-box id="button17" position="0.75 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="=" align="center" color="black" position="0 0 0.02"></a-text>    
+            </a-box>
+            <a-box id="button18" position="-0.7 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="MU" align="center" color="black" position="0 0 0.02" width="2"></a-text>    
+            </a-box>
+            <a-box id="button19" position="-0.3 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+                <a-text value="DEL" align="center" color="black" position="0 0 0.02" width="2"></a-text>    
+            </a-box>
+        </a-entity>
+
+        <!-- camera -->
+        <a-entity id="camera" position="0.4 3 -3" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-box class="clickable" id="camera-body" 
+                position="0 1.5 0" 
+                width="1.7" 
+                height="1.2" 
+                depth="0.5" 
+                color="grey" 
+                material="metalness: 1; roughness: 0.7">
+            <a-text value="Camera" align="center" color="white" position="-0.6 0.5 0.26" width="2"></a-text>
+            </a-box>
+
+            <a-cylinder id="lens" position="0 1.5 0.3" rotation="90 0 0 " radius="0.5" height="0.4" color="black" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
+            <a-cylinder id="lens2" position="0 1.5 0.4" rotation="90 0 0 " radius="0.3" height="0.4" color="white" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
+            <a-cylinder id="dial" position="0.6 2 0" radius="0.2d" height="0.4" color="grey" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
+
+            <a-box id="screen" position="0 1.5 -0.3d" width="1.5" height="0.8" depth="0.02" color="white" material="metalness: 0.1; roughness: 0.1"></a-box>
+
+            <a-box id="flash" position="-0.5 2.2 0.15" width="0.3" height="0.2" depth="0.2" color="grey" class="clickable">
+            </a-box>
+
+        </a-entity>
+
+        <!-- -->
+
+
+           
+
 
     </a-scene>
 
+    <div id="popup" class="popup">
+        <p>🎉 Success! This popup appeared when you clicked the sphere!</p>
+        <button id="closeBtn">Close</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
