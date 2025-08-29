@@ -14,85 +14,94 @@
 </head>
 <body>
     <a-scene physics>
-        <a-camera position="0 3 3">
+        <a-camera position="-0.5 5 7" rotation="-90 0 0">
             <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
         </a-camera>
 
+        <!-- light -->
+        <a-light type="ambient" color="#888"></a-light>
+        <a-light type="directional" color="#fff" intensity="0.5" position="-1 1 1"></a-light>
+        <a-light type="directional" color="#fff" intensity="0.5" position="0 1 -1"></a-light
 
         <!-- ground -->
-        <a-box position="0 0 -5" rotation="0 0 0" width="100" height="0.5" depth="100" color="white" static-body></a-box>
+        <a-box position="0 0 -5" rotation="0 0 0" width="15" height="0.5" depth="10" color="#6c584c" static-body></a-box>
+        <a-box position="-6.5 -1.5 -1" rotation="0 0 0" width="1" height="3" depth="1" color="#6c584c" static-body></a-box>
+        <a-box position="6.5 -1.5 -1" rotation="0 0 0" width="1" height="3" depth="1" color="#6c584c" static-body></a-box>
+        <a-box position="6.5 -1.5 -8" rotation="0 0 0" width="1" height="3" depth="1" color="#6c584c" static-body></a-box>
+        <a-box position="-6.5 -1.5 -8" rotation="0 0 0" width="1" height="3" depth="1" color="#6c584c" static-body></a-box>
+        
         
         <!-- calc -->
-        <a-entity id="calculator" position="0 0 -3" dynamic-body="shape: box; mass: 0.3; linearDamping: 0.4; angularDamping: 0.9; fixedRotation: true " drag-controls super-hands>
+        <a-entity id="calculator" position="-5 4 -1" rotation="270 180 180" dynamic-body="shape: box; mass: 1; linearDamping: 0.1; angularDamping: 0.99; fixedRotation: true " drag-controls super-hands>
 
             <a-box class="clickable" id="calc-body" 
                 position="0 1.5 0" 
                 width="2" 
                 height="3" 
                 depth="0.2" 
-                color="grey" 
+                color="#6096ba" 
                 material="metalness: 1; roughness: 0.7">
             </a-box>
 
             <a-box id="screen" position="0 2.5 0.16" width="1.8" height="0.5" depth="0.02" color="white" material="metalness: 0.1; roughness: 0.1">
-                <a-text value="Hello World!" align="left" color="grey" position="-0.4 0 0.02" width="5"></a-text>
+                <a-text value=">_<" align="left" color="black" position="-0.4 0 0.02" width="5"></a-text>
             </a-box>
 
-            <a-box id="button" position="-0.7 2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button" position="-0.7 2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="%" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button2" position="0.75 2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button2" position="0.75 2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="C" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button3" position="-0.5 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button3" position="-0.5 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="1" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button4" position="-0.1 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button4" position="-0.1 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="2" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button5" position="0.3 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button5" position="0.3 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="3" align="center" color="black" position="0 0 0.02"></a-text>  
             </a-box>
-            <a-box id="button7" position="-0.5 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button7" position="-0.5 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="5" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button8" position="-0.1 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button8" position="-0.1 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="6" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button9" position="0.3 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button9" position="0.3 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="7" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button11" position="-0.5 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button11" position="-0.5 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="9"   align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button12" position="-0.1 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button12" position="-0.1 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="0" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button13" position="0.3 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button13" position="0.3 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="." align="center" color="black" position="0 0.04 0.02"></a-text>  
             </a-box>
-            <a-box id="button14" position="0.75 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button14" position="0.75 1.2 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="+" align="center" color="black" position="0 0 0.02"></a-text>   
             </a-box>
-            <a-box id="button15" position="0.75 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button15" position="0.75 0.8 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="-" align="center" color="black" position="0 0 0.02"></a-text>
             </a-box>
-            <a-box id="button16" position="0.75 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button16" position="0.75 1.6 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="*" align="center" color="black" position="0 0 0.02"></a-text>    
             </a-box>
-            <a-box id="button17" position="0.75 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button17" position="0.75 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="=" align="center" color="black" position="0 0 0.02"></a-text>    
             </a-box>
-            <a-box id="button18" position="-0.7 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button18" position="-0.7 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="MU" align="center" color="black" position="0 0 0.02" width="2"></a-text>    
             </a-box>
-            <a-box id="button19" position="-0.3 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="white" class="clickable">
+            <a-box id="button19" position="-0.3 0.4 0.16" width="0.3" height="0.2" depth="0.02" color="#c7f9cc" class="clickable">
                 <a-text value="DEL" align="center" color="black" position="0 0 0.02" width="2"></a-text>    
             </a-box>
         </a-entity>
 
         <!-- camera -->
-        <a-entity id="camera" position="0.4 3 -3" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+        <a-entity id="camera" position="5 6 -6" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
             <a-box class="clickable" id="camera-body" 
                 position="0 1.5 0" 
                 width="1.7" 
@@ -100,11 +109,13 @@
                 depth="0.5" 
                 color="grey" 
                 material="metalness: 1; roughness: 0.7">
-            <a-text value="Camera" align="center" color="white" position="-0.6 0.5 0.26" width="2"></a-text>
+            <a-text value="G7X" align="center" color="white" position="-0.7 0.5 0.26" width="2"></a-text>
             </a-box>
 
             <a-cylinder id="lens" position="0 1.5 0.3" rotation="90 0 0 " radius="0.5" height="0.4" color="black" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
-            <a-cylinder id="lens2" position="0 1.5 0.4" rotation="90 0 0 " radius="0.3" height="0.4" color="white" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
+            <a-cylinder id="lens2" position="0 1.5 0.4" rotation="90 0 0 " radius="0.3" height="0.4" color="grey" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
+            <a-torus id="lens3" position="0 1.5 0.5" rotation="0 0 0 " radius="0.4" radius-tubular="0.02" color="grey" material="metalness: 0.8; roughness: 0.2"></a-torus>
+
             <a-cylinder id="dial" position="0.6 2 0" radius="0.2d" height="0.4" color="grey" material="metalness: 0.8; roughness: 0.2"></a-cylinder>
 
             <a-box id="screen" position="0 1.5 -0.3d" width="1.5" height="0.8" depth="0.02" color="white" material="metalness: 0.1; roughness: 0.1"></a-box>
@@ -114,10 +125,55 @@
 
         </a-entity>
 
-        <!-- -->
+        <!--- paper -->
+        <a-entity id="paper" position="0 10 -3" rotation="180 0 0" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-box id="paper1" class="clickable" position="-1 1.5 0" rotation="90 0 0" width="3.5" height="4.1" depth="0.02" color="white" material="metalness: 0.1; roughness: 0.1">
+                <a-text value="hello world" align="right" color="black" position="0 1 0.02"></a-text>    
+            </a-box> 
+        </a-entity>
+
+        <!-- glass -->
+        <a-entity id="cup" position="-5 6 -6" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-cylinder id="glass" position="0 0.5 0" radius="0.5" height="1.5" color="#a0c4ff" opacity="0.6" material="metalness: 0.1; roughness: 0.1">
+                <a-text value="water" align="center" color="black" position="-0.2 0 0.26" width="1"></a-text>    
+            </a-cylinder>
+            <a-cylinder id="water" position="0 0.6 0" radius="0.5" height="1.5" color="green" opacity="0.8" material="metalness: 0.1; roughness: 0.1"></a-cylinder>
+            <a-cylinder id="base" position="0 0.5 0" radius="0.7" height="1.5" color="#90e0ef" opacity="0.8" material="metalness: 0.1; roughness: 0.1"></a-cylinder>
+        </a-entity>
+
+        
+        <!-- pencil -->
+        <a-entity id="pencil" position="2 6 -4" rotation="90 0 0" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-cylinder id="body" position="0 0.6 0" radius="0.2" height="1.5" color="orange" material="metalness: 0.1; roughness: 0.1"></a-cylinder>
+            <a-cone id="led" position="0 1.5 0" radius-bottom="0.2" radius-top="0.07" height="0.3" color="#ffe1a8" material="metalness: 0.1; roughness: 0.1"></a-cone>
+            <a-cone id="tip" position="0 1.7 0" radius-bottom="0.08" radius-top="0" height="0.2" color="black" material="metalness: 0.1; roughness: 0.1"></a-cone>
+            <a-cylinder id="eraser" position="0 -0.3 0" radius="0.2" height="0.3" color="black" material="metalness: 0.1; roughness: 0.1"></a-cylinder>
+            <a-cylinder id="metal" position="0 0 0" radius="0.21" height="0.1" color="grey"></a-cylinder>
+            <a-cylinder id="metal2" position="0 -0.4 0" radius="0.21" height="0.3" color="red"></a-cylinder>
+        </a-entity>
+
+        <!-- eraser -->
+        <a-entity id="eraser" position="2 6 -3" rotation="0 0 45" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-box id="eraser-body" position="0 0.2 0" width="1" height="0.4" depth="0.6" color="#e26d5c"></a-box>
+            <a-box id="eraser-cover" position="0 -0.05 0" width="0.8" height="0" depth="0.65" color="#0353a4">
+                <a-text value="ERASE" rotation="90 0 0" align="center" color="white" width="5"></a-text>
+            </a-box>
+            <a-box id="eraser-cover" position="0 0.45 0" width="0.8" height="0" depth="0.65" color="#0353a4">
+                <a-text value="ERASE" rotation="-90 0 0 " align="center" color="white" width="5"></a-text>
+            </a-box>
+            <a-box id="eraser-cover" position="0 0.2 0.32" rotation="90 0 0" width="0.8" height="0" depth="0.54" color="#0353a4"></a-box>
+            <a-box id="eraser-cover" position="0 0.2 -0.32" rotation="90 0 0" width="0.8" height="0" depth="0.54" color="#0353a4"></a-box>
+        </a-entity>
+
+        <!-- sticky note -->
+        <a-entity id="sticky" position="4 11 -1" rotation="-90 0 0" dynamic-body="shape: box; mass: 5" drag-controls super-hands>
+            <a-box id="sticky-body" class="clickable" position="0 0.2 0" rotation="0 0 40" width="1.5" height="1.5" depth="0.02" color="#ffb703" material="metalness: 0.1; roughness: 0.1">
+                <a-text value="Hello! Hope you enjoy this website. There are a couple items on the desk which are clickable (expect for the buttons on the calculator but the base of it is clickable). You can also always refresh the page if the items are falling off the desk/flipped :). Also please note after a certain alloted time, the calculator will stand up on its own!  " align="center" color="black" position="0 0.1 0.02" width="2"></a-text>    
+            </a-box>
+        </a-entity>
 
 
-           
+
 
 
     </a-scene>
