@@ -6,6 +6,7 @@ AFRAME.registerComponent('bounce', {
     }
 });
 
+
 const popupData = {
     calculator: {
         title: "Calculator",
@@ -26,7 +27,7 @@ const popupData = {
     paper: {
         title: "About Me",
         image: "desk ss.png",
-        description: "This paper represents a website I made about myself! It includes my hobbies, interests, and some current projects I am working on. I made this website to practice my HTML/CSS skills and to share a bit about myself with others. Feel free to explore and learn more about me!",
+        description: "This paper represents a website I made about myself! It includes my hobbies, interests, and some current projects I am working on. Feel free to explore and learn more about me!",
         links: [
             { text: "Visit me", url: "https://c22co.github.io/Desk-Web/" },
         ]
